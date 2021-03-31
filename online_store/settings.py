@@ -30,6 +30,7 @@ DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'c_user.User'
 
 # Application definition
 
@@ -42,6 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #third apps:
     'rest_framework',
+
+    #my_apps:
+    'c_user',
+    'api_side',
 ]
 
 MIDDLEWARE = [
