@@ -45,10 +45,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'rest_framework.authtoken',
+    'django_cleanup',
 
     # my_apps:
     'c_user',
     'api_side',
+    'store',
 ]
 
 MIDDLEWARE = [
