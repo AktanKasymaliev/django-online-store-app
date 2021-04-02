@@ -12,6 +12,6 @@ urlpatterns = [
     path('auth/token/', TokenObtainPairView.as_view(), name='access'),
     path('auth/token/refresh/', TokenRefreshView.as_view(), name='refresh'),
     path('auth/', include('djoser.urls.authtoken')),
-    path('users/', UsersView.as_view(), name='users'),
-    path('user/upd/<int:pk>/', UserUpdateView.as_view(), name='user_update')
+    path('', UsersView.as_view(), name='users'),
+    path('upd/<int:pk>/', UserUpdateView.as_view(), name='user_update')
 ]
