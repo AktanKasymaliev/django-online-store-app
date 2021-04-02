@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+#TODO сделать каждой категории свой класс
+# Category/Product - все основные классы
+
