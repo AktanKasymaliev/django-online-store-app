@@ -1,0 +1,67 @@
+aside {
+    float: left;
+    background: dark;
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: rgb(49, 46, 204);
+    border-right: 5px solid #3c1ccc;
+}
+
+aside img {
+    width: 70px;
+    float: left;
+}
+
+aside .logo {
+    font-size: 30px;
+    margin-left: 10px;
+    font-weight:bold;
+}
+
+
+aside .user:hover {
+    color: wheat;
+    text-decoration: none;
+}
+
+aside .username {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+aside .menu {
+    margin-left: 6px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+aside .about-subs {
+    margin-top: 30px;
+    margin-left: 6px;
+    font-size: 20px;
+}
+
+
+aside ul {list-style: none;}
+aside ul li {
+    display: block;
+    margin-top: 20px;
+    transition: all .6s ease;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: wheat;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+
+
+#warningtwo:hover {
+    color: cadetblue;
+    transition: all .6s ease;
+    transform: scale(1.10);
+    text-decoration: none;
+}

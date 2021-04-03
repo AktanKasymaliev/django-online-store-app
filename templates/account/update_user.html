@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block links %}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'js/update.js' %}"></script>
+{% endblock %}
+{% block body %}
+<script>
+    var id = {{ user.id }}
+</script>
+<div class="container">
+    <br>
+    <h2 class="title">Profile<span class="pro-label label label-warning"></span></h2>
+    <form class="form-horizontal", method="patch">
+        {% csrf_token %}
+        <fieldset class="fieldset">
+            <br>
+            <h3 class="fieldset-title">Personal Info</h3>
+            <div class="form-group">
+                <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
+                <div class="col-md-10 col-sm-9 col-xs-12">
+                    {{ form.username }}
+                </div>
+            </div>
+            <br>
+        </fieldset>
+        <fieldset class="fieldset">
+            <h3 class="fieldset-title">Contact Info</h3>
+            <div class="form-group">
+                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
+                <div class="col-md-10 col-sm-9 col-xs-12">
+                    {{ form.email }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Phone</label>
+                <div class="col-md-10 col-sm-9 col-xs-12">
+                    {{ form.phone_number }}
+                </div>
+            </div>
+        </fieldset>
+        <hr>
+        <div class="form-group">
+            <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+                <input class="btn btn-primary" type="submit" value="Update Profile">
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+</section>
+</div>
+</div>
+{% block footer %}{% endblock %}
+
+{% endblock %}

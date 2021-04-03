@@ -12,8 +12,7 @@ from .token import account_activation_token
 from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import JSONRenderer
 from rest_framework_simplejwt.views import TokenObtainPairView
-from rest_framework.permissions import AllowAny
-
+from rest_framework import permissions
 
 
 class RegisterView(APIView):
@@ -48,21 +47,21 @@ def activating(request, uidb64, token):
         return Response('Error')
 
 
-
 class UsersView(generics.ListAPIView):
     serializer_class = UsersSerializers
     queryset = User.object.all()
 
+
 class UserUpdateView(generics.UpdateAPIView):
     serializer_class = UserUpdateSerializer
     queryset = User.object.all()
+    permission_classes = [permissions.IsAuthenticated, permissions.IsOwner]
 
     def put(self, request, *args, **kwargs):
         return Response('Put method not allowed')
 
 
-
 class TokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
-    permission_classes = [AllowAny, ]
+    permission_classes = [permissions.AllowAny, ]
 
