@@ -1,7 +1,10 @@
 from django.views import generic
 from .models import (Product, LatestProducts,
                      LaptopsCategory, SmartPhonesCategory)
-
+from c_user.models import User
+from django.contrib.auth.views import LoginView
+from .forms import UserLoginForm, RegisterForm, UserProfileUpdateForm
+from django.shortcuts import redirect, render
 
 
 class ProductsView(generic.ListView):
@@ -24,7 +27,6 @@ class ProductSmartphonesDetailView(generic.DetailView):
     model = SmartPhonesCategory
 
 
-
 # Фильтер
 class LaptopsProductView(generic.ListView):
     template_name = 'products/laptops.html'
@@ -44,3 +46,26 @@ class SmartphonesProductView(generic.ListView):
         context = super(SmartphonesProductView, self).get_context_data(**kwargs)
         context['smartphones'] = SmartPhonesCategory.objects.all().order_by('-id')
         return context
+
+
+# Авторизация
+class UserLoginView(LoginView):
+    template_name = 'account/login.html'
+    form_class = UserLoginForm
+
+
+class RegisterView(generic.CreateView):
+    template_name = 'account/register.html'
+    form_class = RegisterForm
+    model = User
+
+
+class UserProfileView(generic.DetailView):
+    template_name = 'account/user.html'
+    model = User
+
+
+class UserProfileUpdateView(generic.UpdateView):
+    template_name = 'account/update_user.html'
+    model = User
+    form_class = UserProfileUpdateForm

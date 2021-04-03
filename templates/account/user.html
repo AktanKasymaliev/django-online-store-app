@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    {% block links %}<link rel="stylesheet" href="{% static 'css/my_profile.css'%}">{% endblock %}
+	{% block title %}<title>My profile</title>{% endblock %}
+</head>
+<body>
+{% block body %}
+	<aside>
+		<span class="logo">Profile: </span>
+		<a href="" class='user'><span class="username">@{{ user.username }}</span></a>
+		<br>
+		<br>
+		<span class="about-subs">На счету: $565</span>
+		<br>
+		<span class="about-subs">В корзине: 0</span>
+		<br>
+		<span class="about-subs">Статус: online</span>
+		<h3 class='menu'>Menu: </h3>
+		<ul>
+			<h5><a href="{% url 'list_page' %}"><li>Основная страница</li></a></h5>
+			<h5><a href="#" ><li>Корзина</li></a></h5>
+            <h5><a href="{% url 'update_user' pk=user.id %}" ><li>Обновить данные</li></a></h5>
+			<hr>
+			<h5><a href="{% url 'logout' %}" ><li>Выйти</li></a></h5>
+		</ul>
+	</aside>
+	<main>
+        <center><h1>Ваша корзина пуста</h1></center>
+        <center><h2>(Корзина еще не осуществлена)</h2></center>
+	</main>
+{% block footer %}
+{% endblock %}
+</body>
+</html>
+{% endblock %}

@@ -49,7 +49,6 @@ INSTALLED_APPS = [
 
     # my_apps:
     'c_user',
-    'api_side',
     'store',
 ]
 
@@ -126,6 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
+        'rest_framework.authentication.SessionAuthentication',
         "rest_framework.authentication.TokenAuthentication",
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
@@ -162,6 +162,10 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
+
+LOGIN_REDIRECT_URL = 'list_page'
+LOGOUT_REDIRECT_URL = 'list_page'
+LOGIN_URL = 'login'
 
 # DJOSER:
 DJOSER = {
