@@ -13,7 +13,7 @@ Aктивация: python3 -m venv venv
 ```
 * Установить все зависимости: 
 ```
-pip isntall -r requirements.txt
+pip install -r requirements.txt
 ```
 
 * Создать файл .env на уровне самого проекта, скопировать строки ниже, и подставить свои значения
