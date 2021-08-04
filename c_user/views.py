@@ -36,7 +36,7 @@ class RegisterView(APIView):
 def activating(request, uidb64, token):
     try:
         primary_key = force_text(urlsafe_base64_decode(uidb64))
-        user = User.object.get(pk=primary_key)
+        user = User.objects.get(pk=primary_key)
     except (TypeError, ValueError, OverflowError) as e:
         user = None
     if user is not None and account_activation_token.check_token(user, token):
@@ -49,13 +49,13 @@ def activating(request, uidb64, token):
 
 class UsersView(generics.ListAPIView):
     serializer_class = UsersSerializers
-    queryset = User.object.all()
+    queryset = User.objects.all()
 
 
 class UserUpdateView(generics.UpdateAPIView):
     serializer_class = UserUpdateSerializer
-    queryset = User.object.all()
-    permission_classes = [permissions.IsAuthenticated, permissions.IsOwner]
+    queryset = User.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
 
     def put(self, request, *args, **kwargs):
         return Response('Put method not allowed')
